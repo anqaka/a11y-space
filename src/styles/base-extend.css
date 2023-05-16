@@ -13,6 +13,10 @@
   a:hover {
     text-decoration: underline;
   }
+
+  [role=tab] {
+    @apply focus-visible:outline-dashed focus-visible:-outline-offset-2 focus-visible:outline-primary focus-visible:outline-2;
+  }
 }
 
 
