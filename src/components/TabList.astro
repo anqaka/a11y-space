@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  wrapperId: string;
+  tabList: string[];
+}
+const { title, wrapperId, tabList } = Astro.props
+---
+<div class="tabs" id={wrapperId} data-wrapper={wrapperId}>
+  <h3>{title}</h3>
+  <div class="flex">
+    {
+      tabList.map((tab, i) => (
+        <a
+          href="#"
+          id={`tab-${wrapperId}-${i}`}
+          type="button"
+          class={`p-4 border-2 border-b-0 tab text-primary ${i !== 0 ? 'border-l-0' : ''}`}
+        >
+          {tab}
+        </a>
+      ))
+    }
+  </div>
+  <slot />
+</div>
+<script>
+import { Tabs } from './helpers/tabs'
+
+document.querySelectorAll('.tabs').forEach((elem) => {
+  new Tabs(elem)
+});
+</script>
+<style>
+.selected {
+  @apply bg-gradient !text-white;
+}
+</style>

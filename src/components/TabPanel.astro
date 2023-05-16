@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: string;
+  tabId: string;
+  ariaHidden: 'false' | 'true';
+}
+const { id } = Astro.props
+---
+<div
+  id={id}
+  class="p-8 border-2 tabpanel"
+>
+  <slot />
+</div>
+<style>
+.tabpanel:not(.active) {
+  @apply hidden;
+}
+</style>

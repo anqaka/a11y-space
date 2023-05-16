@@ -1,0 +1,69 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BlogCard from '../components/BlogCard.astro';
+import ModalDialog from '../components/ModalDialog.astro';
+import ModalDialogTrigger from '../components/ModalDialogTrigger.astro';
+import a11yTips from '../content/tips.json';
+
+const response = await fetch('https://hp-api.onrender.com/api/characters')
+const data = await response.json()
+data.length = 12;
+const hpdata = data.map((item, index) => {
+  if (item.image.length) {
+    item.tips = a11yTips[index];
+    return item
+  }
+});
+---
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="maincontent">
+    <div class="relative mb-12">
+        <picture>
+          <source srcset="banner-image-360.jpeg 360w, banner-image-768.jpeg 768w, banner-image.jpeg 1024w, banner-image-wide.jpeg 1980w" sizes="100vw">
+          <img src="banner-image.jpeg" alt="some text" class="w-full h-full object-cover">
+        </picture>
+      <div class="md:absolute md:w-1/2 md:bg-white/75 md:ml-6 container mx-auto p-4 md:p-6 text-center md:text-left md:bottom-[100px]">
+        <p class="font-bold text-4xl">What does penguin know about web accessibility?</p>
+      </div>
+      <p class="text-center text-xl p-4">not much, I'm afraid</p>
+    </div>
+
+    <div class="flex justify-center">
+      <ModalDialogTrigger id="main-dialog-trigger">
+        Did you know...?
+      </ModalDialogTrigger>
+    </div>
+
+    <div class="container mx-auto flex-grow">
+      <div class="py-4">
+        <p class="font-bold text-3xl text-center">What Harry Potter and his friends know about it?</p>
+        <div class="grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {
+            hpdata.map((character) => (
+              <BlogCard name={character.name} image={character.image} description={character.tips?.short} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  <ModalDialog id="main-dialog" title="How make a modal dialog accessible?" triggerId="main-dialog-trigger">
+    <p class="mb-4">Did you know that manu screen reader users have no idea about cookies on you website? What's visible on a screen, it's not always available for assistive technologies.</p>
+    <h3 class="custom-after mb-3 after:left-[40%] text-center">What features has accessible modal dialog?</h3>
+    <div class="list-disc pl-8 py-4">
+      <div class="list-item">
+        Modal trigger should inform that the dialog opens when user clicks it.
+      </div>
+      <div class="list-item">
+        Using `Tab` and `Shift + Tab` keys inside the dialog, user navigates thgough focusable elements only inside a dialog.
+      </div>
+      <div class="list-item">When dialog is opened, user cannot interact wwith content outside an active dialog.</div>
+      <div class="list-item">`Escape` key close a dialog.</div>
+      <div class="list-item">The element that is the dialog has `role="dialog"`</div>
+      <div class="list-item">The element that is the dialog has `aria-modal="true"`</div>
+    </div>
+    <button type="button" class="btn dialog__close-button">Ok, great</button>
+  </ModalDialog>
+</Layout>

@@ -1,0 +1,50 @@
+[
+  {
+    "short": "HTML landmarks improve page structure. Do you know 'main', 'footer', 'header', 'aside', 'article'?",
+    "long": "HTML landmarks improve page structure. Do you know 'main', 'footer', 'header', 'aside', 'article'?"
+  },
+  {
+    "short": "Semantic HTML provide useful information about document, its structure and role. Don't forget about it",
+    "long": "Semantic HTML provide useful information about document, its structure and role. Don't forget about it"
+  },
+  {
+    "short": "Headings and their order it's like a content menu - inform users about important sections and information.",
+    "long": "Headings and their order it's like a content menu - inform users about important sections and information."
+  },
+  {
+    "short": "Don't forget about alternative text for image and graphic content.",
+    "long": "Don't forget about alternative text for image and graphic content."
+  },
+  {
+    "short": "If your button does not have visible text, use aria-label to provide an alternative.",
+    "long": "If your button does not have visible text, use aria-label to provide an alternative."
+  },
+  {
+    "short": "Mark all different states of interactive content well visible.",
+    "long": "Mark all different states of interactive content well visible."
+  },
+  {
+    "short": "Don't rely only on colors when you pass information.",
+    "long": "Don't rely only on colors when you pass information."
+  },
+  {
+    "short": "Put your mouse away and check if all features are available with keyboard.",
+    "long": "Put your mouse away and check if all features are available with keyboard."
+  },
+  {
+    "short": "There are various Assistive Technologies to reach web content, go out of the box while testing.",
+    "long": "There are various Assistive Technologies to reach web content, go out of the box while testing."
+  },
+  {
+    "short": "Do you know that ~4.5% of the world population (~350 million) people are colorblind? Check color contrast.",
+    "long": "Do you know that ~4.5% of the world population (~350 million) people are colorblind? Check color contrast."
+  },
+  {
+    "short": "Automatic accessibility testing tools can find up to ~60% of issues. Try it out",
+    "long": "Automatic accessibility testing tools can find up to ~60% of issues. Use it :)."
+  },
+  {
+    "short": "Better not to use ARIA than using it in a wrong way",
+    "long": "Better not to use ARIA than using it in a wrong way"
+  }
+]

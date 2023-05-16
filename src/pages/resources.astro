@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import LinksList from '../components/LinksList.astro';
+
+const resources = [
+  {
+    label: 'WCAG',
+    url: 'https://www.w3.org/TR/WCAG21/'
+  },
+  {
+    label: 'WCAG quick reference',
+    url: 'https://www.w3.org/WAI/WCAG21/quickref/'
+  },
+  {
+    label: 'W3C - Design and develop - tips and tutorials',
+    url: 'https://www.w3.org/WAI/design-develop/'
+  },
+  {
+    label: 'ARIA Authoring Practices Guide (APG) - Pattens',
+    url: 'https://www.w3.org/WAI/ARIA/apg/patterns/'
+  },
+  {
+    label: 'Scott Ohara blog',
+    url: '#'
+  }
+]
+
+const blogs = [
+  {
+    label: 'Scott Ohara',
+    url: 'https://www.scottohara.me/writing/'
+  }
+]
+
+const newsletters = [
+  {
+    label: 'A11y weekly',
+    url: 'https://a11yweekly.com/'
+  }
+]
+---
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="maincontent container mx-auto py-8 flex-grow">
+    <h3 class="mb-8 text-6xl font-bold text-primary text-center">Resources</h3>
+    <LinksList heading="Guidelines & tutorials" list={resources} />
+    <LinksList heading="Blogs" list={blogs} />
+    <LinksList heading="Newsletter" list={newsletters} />
+  </div>
+</Layout>

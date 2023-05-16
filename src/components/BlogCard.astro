@@ -1,0 +1,31 @@
+---
+interface Props {
+  image: string;
+  name: string;
+  description: string
+}
+
+const { image, name, description } = Astro.props
+const postPath = name.replace(' ', '-').toLowerCase()
+---
+
+<div class="my-8 rounded shadow-lg shadow-gray-200 bg-white duration-300 hover:-translate-y-1 relative flex flex-col">
+  <a href={`/harry-potter-blog/${postPath}`} class="flex h-80">
+    <img
+      src={image}
+      class="post-img rounded-t w-full object-cover"
+    />
+  </a>
+  <div class="px-3 flex flex-col justify-between flex-grow">
+    <h4 class="font-bold text-xl">
+      <a href={`/harry-potter-blog/${postPath}`} class="custom-after post-link py-4 block text-primary hover:no-underline">{name}</a>
+    </h4>
+    <p class="flex-grow">{description}</p>
+    <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more</a>
+  </div>
+</div>
+<style>
+.post-img {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1rem));
+}
+</style>
