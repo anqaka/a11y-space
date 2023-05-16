@@ -13,6 +13,23 @@
   a:hover {
     text-decoration: underline;
   }
+
+  a[href]:not([inert]):not([tabindex^="-"]),
+  area[href]:not([inert]):not([tabindex^="-"]),
+  input:not([disabled]):not([inert]):not([type="hidden"]):not([tabindex^="-"]),
+  select:not([disabled]):not([inert]):not([tabindex^="-"]),
+  textarea:not([disabled]):not([inert]):not([tabindex^="-"]),
+  button:not([disabled]):not([inert]):not([tabindex^="-"]),
+  object:not([tabindex^="-"]),
+  embed:not([tabindex^="-"]),
+  iframe:not([inert]):not([tabindex^="-"]),
+  audio[controls]:not([inert]):not([tabindex^="-"]),
+  video[controls]:not([inert]):not([tabindex^="-"]),
+  *[tabindex]:not([tabindex^="-"]):not([inert]),
+  *[contenteditable]:not([tabindex^="-"]),
+  details:not([inert]) > summary:first-of-type:not([tabindex^="-"]) {
+    @apply focus-visible:outline-dashed focus-visible:outline-offset-1 focus-visible:outline-primary focus-visible:outline-2;
+  }
 }
 
 
@@ -23,7 +40,7 @@
   }
 
   .btn:hover,
-  .btn:focus {
+  .btn:focus-visible {
     @apply bg-left-top;
   }
 
