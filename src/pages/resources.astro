@@ -21,8 +21,31 @@ const resources = [
     url: 'https://www.w3.org/WAI/ARIA/apg/patterns/'
   },
   {
-    label: 'Scott Ohara blog',
-    url: '#'
+    label: 'Inclusive components',
+    url: 'https://inclusive-components.design/'
+  },
+  {
+    label: 'Axe-con 2023',
+    url: 'https://www.deque.com/axe-con/schedule/'
+  }
+]
+
+const tools = [
+  {
+    label: 'Axe browser extension',
+    url: 'https://www.deque.com/axe/browser-extensions/'
+  },
+  {
+    label: 'Wave browser extension',
+    url: 'https://wave.webaim.org/extension/'
+  },
+  {
+    label: 'Lighthouse',
+    url: 'https://developer.chrome.com/docs/lighthouse/accessibility/'
+  },
+  {
+    label: 'ANDI',
+    url: 'https://www.ssa.gov/accessibility/andi/help/install.html'
   }
 ]
 
@@ -30,6 +53,34 @@ const blogs = [
   {
     label: 'Scott Ohara',
     url: 'https://www.scottohara.me/writing/'
+  },
+  {
+    label: 'Smashing Magazine - Accessibility',
+    url: 'https://www.smashingmagazine.com/category/accessibility/'
+  },
+  {
+    label: 'Deque blog',
+    url: 'https://www.deque.com/blog/'
+  },
+  {
+    label: 'Usablenet blog',
+    url: 'https://blog.usablenet.com/'
+  },
+  {
+    label: 'Funka blog',
+    url: 'https://blog.usablenet.com/'
+  },
+  {
+    label: 'Webaxe',
+    url: 'http://www.webaxe.org/'
+  },
+  {
+    label: 'Webaim blog',
+    url: 'https://webaim.org/blog/'
+  },
+  {
+    label: 'Level Access',
+    url: 'https://www.levelaccess.com/blog'
   }
 ]
 
@@ -37,6 +88,10 @@ const newsletters = [
   {
     label: 'A11y weekly',
     url: 'https://a11yweekly.com/'
+  },
+  {
+    label: 'Dostępnik',
+    url: 'https://dostepnik.substack.com/'
   }
 ]
 ---
@@ -45,7 +100,8 @@ const newsletters = [
   <div class="maincontent container mx-auto py-8 flex-grow">
     <h3 class="mb-8 text-6xl font-bold text-primary text-center">Resources</h3>
     <LinksList heading="Guidelines & tutorials" list={resources} />
-    <LinksList heading="Blogs" list={blogs} />
+    <LinksList heading="Tools" list={tools} />
     <LinksList heading="Newsletter" list={newsletters} />
+    <LinksList heading="Blogs" list={blogs} />
   </div>
 </Layout>
