@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="container mx-auto flex flex-col py-6 flex-grow">
+    <h1 class="mb-8 text-4xl font-bold text-primary text-center">Write a message for penguin in space</h1>
+    <div class="my-6 grid grid-flow-row gap-6 grid-cols-1 md:grid-cols-2">
+      <div>
+        <h2 id="form-heading" class="text-2xl text-center">Your message</h2>
+        <form id="msg-form" aria-labelledby="form-heading" class="flex flex-col items-center">
+          <div class="input-field py-6 flex flex-col">
+            <label for="msg-field">Message</label>
+            <input type="text" id="msg-field" name="message" placeholder="Your message for penguin" class="w-[300px] form-input rounded" />
+            <div aria-live="assertive">
+              <p class="error-info hidden text-red-600">This field cannot be empty</p>
+            </div>
+          </div>
+          <button type="submit" class="btn w-[300px]">Submit</button>
+        </form>
+      </div>
+      <section class="p-6" aria-labelledby="msg-heading">
+        <div aria-live="polite" aria-atomic="true" id="live-region">
+          <h2 id="msg-heading" class="text-2xl font-bold mb-4">Dear Penguin in space</h2>
+          <p id="penguin-message" class="hidden mb-6"></p>
+          <p class="msg-placeholder">Your message goes here</p>
+        </div>
+      </section>
+    </div>
+    <div class="flex justify-center"><button type="button" class="btn clear-btn">Clear</button></div>
+  </div>
+</Layout>
+<script>
+const formMsg = document.querySelector('#msg-form') as HTMLElement
+const msgField = document.querySelector('#msg-field') as HTMLInputElement
+const errorMsgContainer = document.querySelector('.error-info') as HTMLElement
+const penguinMsg = document.querySelector('#penguin-message') as HTMLElement
+const msgPlaceholder = document.querySelector('.msg-placeholder') as HTMLElement
+const liveRegionWrapper = document.querySelector('#live-region') as HTMLElement
+const clearBtn = document.querySelector('.clear-btn') as HTMLButtonElement
+
+
+formMsg?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (msgField?.value) {
+    penguinMsg.innerHTML = msgField.value
+    penguinMsg.classList.remove('hidden')
+    msgPlaceholder.classList.add('hidden')
+    if (document.querySelector('#ai-pengiun')) {
+      document.querySelector('#ai-pengiun').remove()
+    }
+    const randomInt = Math.floor(Math.random() * 13);
+    const img = document.createElement('img');
+    img.src = `/penguin-${randomInt}.jpeg`
+    img.alt = 'random penguin image gereated by AI'
+    img.id = 'ai-pengiun'
+    liveRegionWrapper.appendChild(img)
+  } else {
+    errorMsgContainer.classList.remove('hidden')
+    msgField.focus()
+  }
+})
+
+msgField.addEventListener('input', (e) => {
+  if (!errorMsgContainer.classList.contains('hidden')) {
+    errorMsgContainer.classList.add('hidden')
+  }
+})
+
+clearBtn.addEventListener('click', () => {
+  penguinMsg.innerHTML = ''
+  const imgPenguin = document.querySelector('#ai-pengiun')
+  if (imgPenguin) {
+    imgPenguin.remove()
+  }
+  if (msgPlaceholder.classList.contains('hidden')) {
+    msgPlaceholder.classList.remove('hidden')
+  }
+  msgField.value = ''
+
+})
+
+</script>
