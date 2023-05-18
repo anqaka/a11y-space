@@ -23,7 +23,7 @@ const postPath = name.replace(' ', '-').toLowerCase()
         <a href={`/harry-potter-blog/${postPath}`} class="custom-after post-link py-4 block text-primary hover:no-underline">{name}</a>
       </h3>
       <p class="flex-grow">{description}</p>
-      <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more</a>
+      <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more <span class="sr-only">about {name}</span></a>
     </div>
   </article>
 </li>
