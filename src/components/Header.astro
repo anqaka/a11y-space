@@ -3,7 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<div class="header py-4 px-2 shadow">
+<header class="header py-4 px-2 shadow">
   <div class="container mx-auto flex justify-between items-center">
     <a href="/" class="p-4 text-2xl text-primary font-mono font-bold text-center hover:no-underline hover:bg-coral/20 transition-colors">
       {SITE_TITLE}
@@ -18,7 +18,7 @@ import { SITE_TITLE } from '../consts';
       <HeaderLink href="/resources">Resources</HeaderLink>
     </div>
   </div>
-</div>
+</header>
 <script>
 const menuTrigger = document.querySelector('.trigger');
 const menuContent = document.querySelector('.menu-content');
