@@ -10,22 +10,28 @@ import CloseIcon from '/icons/close.svg?raw';
 const { title, id, triggerId } = Astro.props
 ---
 <div
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
   class="dialog fixed hidden left-0 top-0 z-[1055] h-full w-full overflow-y-auto overflow-x-hidden outline-none bg-primary/50"
   aria-labelledby={`dialog-title-${id}`}
   data-trigger={triggerId}
 >
-  <div class="relative w-[90%] max-w-[600px] shadow-md bg-white p-6 animate-animatetop flex flex-col itemc-center rounded">
-    <div class="w-[80%] mx-auto dialog__content">
-      <h3
+  <div class="relative w-[90%] max-w-[600px] shadow-md bg-white animate-animatetop flex flex-col items-center rounded">
+    <div class="w-full px-[10%] py-6 dialog__content" tabindex="0">
+      <h2
         class="text-center font-bold text-2xl py-3"
         id={`dialog-title-${id}`}
       >
         {title}
-      </h3>
+      </h2>
       <slot />
     </div>
-    <button class="dialog__close-button rounded p-3 absolute top-2 right-2 hover:bg-primary transition-colors duration-200 group">
-      <span class="fill-primary group-hover:fill-coral">
+    <button
+      class="dialog__close-button rounded p-3 absolute top-2 right-2 hover:bg-primary focus-visible:bg-primary transition-colors duration-200 group"
+      aria-label="close modal"
+    >
+      <span class="fill-primary group-hover:fill-coral group-focus-visible:fill-coral" aria-hidden="true">
         <Fragment set:html={CloseIcon} />
       </span>
     </button>
@@ -35,7 +41,7 @@ const { title, id, triggerId } = Astro.props
 <script>
 import { Dialog } from './helpers/dialog'
 
-document.querySelectorAll('.dialog').forEach((elem:HTMLElement) => {
+document.querySelectorAll('[role="dialog"]').forEach((elem:HTMLElement) => {
   const dialogTriggerId = elem.dataset.trigger
   const dialogTrigger = document.querySelector(`#${dialogTriggerId}`)
   new Dialog(dialogTrigger, elem)
