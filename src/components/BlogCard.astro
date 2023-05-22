@@ -10,22 +10,28 @@ const postPath = name.replace(' ', '-').toLowerCase()
 ---
 
 <li class="my-8 rounded shadow-lg shadow-gray-200 bg-white duration-300 hover:-translate-y-1 relative flex flex-col">
-  <a href={`/harry-potter-blog/${postPath}`} class="flex h-80">
-    <img
-      src={image}
-      class="post-img rounded-t w-full object-cover"
-    />
-  </a>
-  <div class="px-3 flex flex-col justify-between flex-grow">
-    <h3 class="font-bold text-xl">
-      <a href={`/harry-potter-blog/${postPath}`} class="custom-after post-link py-4 block text-primary hover:no-underline">{name}</a>
-    </h3>
-    <p class="flex-grow">{description}</p>
-    <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more</a>
-  </div>
+  <article class="flex flex-col relative flex-grow">
+    <div class="flex h-80">
+      <img
+        src={image}
+        class="post-img rounded-t w-full object-cover"
+        alt={name}
+      />
+    </div>
+    <div class="px-3 flex flex-col justify-between flex-grow">
+      <h3 class="font-bold text-xl">
+        <a href={`/harry-potter-blog/${postPath}`} class="custom-after post-link py-4 block text-primary hover:no-underline">{name}</a>
+      </h3>
+      <p class="flex-grow">{description}</p>
+      <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more</a>
+    </div>
+  </article>
 </li>
 <style>
 .post-img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1rem));
+}
+.post-link:before {
+  @apply content-[''] absolute top-0 right-0 left-0 h-[320px];
 }
 </style>
