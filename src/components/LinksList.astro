@@ -9,12 +9,12 @@ const { heading, list } = Astro.props
 <h4 class="custom-after mb-8 text-4xl font-bold text-primary">
   {heading}
 </h4>
-<div class="list-disc pl-8 mb-8">
+<ul class="list-disc pl-8 mb-8">
   {
     list.map((item) => (
-      <div class="list-item">
+      <li>
         <a href={item.url} target="_blank" class="">{item.label}</a>
-      </div>
+      </li>
     ))
   }
-</div>
+</ul>

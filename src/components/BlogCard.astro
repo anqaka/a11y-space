@@ -9,7 +9,7 @@ const { image, name, description } = Astro.props
 const postPath = name.replace(' ', '-').toLowerCase()
 ---
 
-<div class="my-8 rounded shadow-lg shadow-gray-200 bg-white duration-300 hover:-translate-y-1 relative flex flex-col">
+<li class="my-8 rounded shadow-lg shadow-gray-200 bg-white duration-300 hover:-translate-y-1 relative flex flex-col">
   <a href={`/harry-potter-blog/${postPath}`} class="flex h-80">
     <img
       src={image}
@@ -23,7 +23,7 @@ const postPath = name.replace(' ', '-').toLowerCase()
     <p class="flex-grow">{description}</p>
     <a href={`/harry-potter-blog/${postPath}`} class="btn w-full my-3">Read more</a>
   </div>
-</div>
+</li>
 <style>
 .post-img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1rem));
