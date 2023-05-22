@@ -4,16 +4,19 @@ interface Props {
   tabId: string;
   ariaHidden: 'false' | 'true';
 }
-const { id } = Astro.props
+const { id, tabId, ariaHidden } = Astro.props
 ---
 <div
+  role="tabpanel"
   id={id}
-  class="p-8 border-2 tabpanel"
+  aria-labelledby={tabId}
+  aria-hidden={ariaHidden}
+  class="p-8 border-2"
 >
   <slot />
 </div>
 <style>
-.tabpanel:not(.active) {
+div[role="tabpanel"][aria-hidden="true"] {
   @apply hidden;
 }
 </style>
