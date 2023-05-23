@@ -38,6 +38,13 @@ In a project you will find accessibility features:
 * Modal component
 * Tabs component
 
+## Theory in support
+
+If you need theoretical support, you can check slides with basics and docs links:
+
+[English version](https://a11y-workshops-pres-en.vercel.app/)
+[Polish version](https://a11y-workshops-pres-pl.vercel.app/)
+
 ## Contribution
 
 Feel free to contribute! Create pull requests with new components, fixes and enhancement.
