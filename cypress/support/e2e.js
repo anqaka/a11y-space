@@ -15,6 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '@axe-core/watcher/dist/cypressCommands';
+
+afterEach(() => {
+  cy.axeFlush();
+});
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

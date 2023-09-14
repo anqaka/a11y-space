@@ -1,0 +1,19 @@
+name: E2E on Chrome
+
+on: [push]
+
+jobs:
+  install:
+    reuns-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run preview
+          browser: chrome
+          wait-on: "http://localhost:3000"
+        env:
+          AXE_API_KEY: ${{ secrets.AXE_API_KEY }}
