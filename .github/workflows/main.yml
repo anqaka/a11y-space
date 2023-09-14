@@ -1,6 +1,6 @@
 name: E2E on Chrome
 
-on: [push]
+on: push
 
 jobs:
   install:
@@ -16,7 +16,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: pnpm run build
-          start: pnpm run preview
+          start: pnpm run start
           browser: chrome
           wait-on: "http://localhost:3000"
         env:
