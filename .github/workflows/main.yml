@@ -18,6 +18,7 @@ jobs:
           build: pnpm run build
           start: pnpm run start
           browser: chrome
+          headed: true
           wait-on: "http://localhost:3000"
         env:
           AXE_API_KEY: ${{ secrets.AXE_API_KEY }}
