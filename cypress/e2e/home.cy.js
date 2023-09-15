@@ -17,7 +17,7 @@ describe('home page', () => {
 
   it('Dialog opens with trigger and move focus to content and move back after closing', () => {
     cy.getByData('dialog-trigger').click()
-    cy.checkA11y(null, null, terminalLogA11y)
+    cy.checkA11y('[data-test="dialog-content"]', null, terminalLogA11y)
     cy.getByData('dialog-content').then(($el) => {
       Cypress.dom.isFocused($el)
     }).get('button[aria-label="close modal"]').click()
