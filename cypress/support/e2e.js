@@ -15,10 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import '@axe-core/watcher/dist/cypressCommands';
+import 'cypress-axe'
+import '@axe-core/watcher/dist/cypressCommands'
 
 afterEach(() => {
-  cy.axeFlush();
+  cy.axeFlush()
 });
 
 // Alternatively you can use CommonJS syntax:

@@ -1,6 +1,9 @@
+import { terminalLogA11y } from '../support/utils'
+
 describe('home page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
+    cy.injectAxe()
   })
   it('the h1 contains the correct text', () => {
     cy.getByData('hero-heading').contains(
@@ -14,6 +17,7 @@ describe('home page', () => {
 
   it('Dialog opens with trigger and move focus to content and move back after closing', () => {
     cy.getByData('dialog-trigger').click()
+    cy.checkA11y(null, null, terminalLogA11y)
     cy.getByData('dialog-content').then(($el) => {
       Cypress.dom.isFocused($el)
     }).get('button[aria-label="close modal"]').click()
@@ -28,5 +32,9 @@ describe('home page', () => {
       cy.getByData('header-navigation').get('ul > li').find('a').contains('Live region').click()
       cy.location('pathname').should('equal', '/live-region')
     })
+  })
+
+  it('Has no detectable a11y violations on load (custom configuration)', () => {
+    cy.checkA11y(null, null, terminalLogA11y)
   })
 })
