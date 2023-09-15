@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: cypress
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dequelabs/axe-devhub-action@v1
         with:
           api_key: ${{ secrets.AXE_API_KEY }}
