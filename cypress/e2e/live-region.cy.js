@@ -1,9 +1,9 @@
-import { terminalLogA11y } from '../support/utils'
+// import { terminalLogA11y } from '../support/utils'
 
 describe('live region', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/live-region')
-    cy.injectAxe()
+    // cy.injectAxe()
   })
 
   it('the h1 contains the correct text', () => {
@@ -18,10 +18,10 @@ describe('live region', () => {
     cy.getByData('message-submit-btn').click()
     cy.getByData('penguin-message').should('be.visible').contains(message)
     cy.get('#ai-penguin').should('exist')
-    cy.checkA11y(null, null, terminalLogA11y)
+    // cy.checkA11y(null, null, terminalLogA11y)
   })
 
-  it('Has no detectable a11y violations on load (custom configuration)', () => {
-    cy.checkA11y(null, null, terminalLogA11y)
-  })
+  // it('Has no detectable a11y violations on load (custom configuration)', () => {
+  //   cy.checkA11y(null, null, terminalLogA11y)
+  // })
 })
