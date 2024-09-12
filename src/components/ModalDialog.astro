@@ -18,13 +18,13 @@ const { title, id, triggerId } = Astro.props
   data-trigger={triggerId}
 >
   <div class="relative w-[90%] max-w-[600px] shadow-md bg-white animate-animatetop flex flex-col items-center rounded">
-    <div class="w-full px-[10%] py-6 dialog__content" tabindex="0">
-      <p
+    <div class="w-full px-[10%] py-6 dialog__content" tabindex="0" data-test="dialog-content">
+      <h5
         class="text-center font-bold text-2xl py-3"
         id={`dialog-title-${id}`}
       >
         {title}
-      </p>
+      </h5>
       <slot />
     </div>
     <button
