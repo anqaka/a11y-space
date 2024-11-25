@@ -12,10 +12,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <form id="msg-form" aria-labelledby="form-heading" class="flex flex-col items-center">
           <div class="input-field py-6 flex flex-col">
             <label for="msg-field">Message</label>
-            <input type="text" id="msg-field" name="message" placeholder="Your message for penguin" class="w-[300px] form-input rounded" />
-            <div aria-live="assertive">
-              <p class="error-info hidden text-red-600">This field cannot be empty</p>
-            </div>
+            <input type="text" id="msg-field" name="message" placeholder="Your message for penguin" class="w-[300px] form-input rounded" aria-describedby="msg-error" />
+            <p class="error-info hidden text-red-600" id="msg-error">This field cannot be empty</p>
           </div>
           <button type="submit" class="btn w-[300px]">Submit</button>
         </form>

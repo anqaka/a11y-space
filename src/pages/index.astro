@@ -41,8 +41,8 @@ const hpdata = data.map((item, index) => {
 
     <div class="container mx-auto flex-grow">
       <div class="py-4">
-        <h2 class="font-bold text-3xl text-center">What Harry Potter and his friends know about it?</h2>
-        <ul class="grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <h2 class="font-bold text-3xl text-center" id="main-heading">What Harry Potter and his friends know about it?</h2>
+        <ul class="grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-labelledby="main-heading">
           {
             hpdata.map((character) => (
               <BlogCard name={character.name} image={character.image} description={character.tips?.short} />
