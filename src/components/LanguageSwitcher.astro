@@ -1,0 +1,11 @@
+---
+interface Props {
+  current: 'pl' | 'en';
+}
+const { current } = Astro.props;
+---
+<nav aria-label="Wybór języka" class="flex gap-2 items-center">
+  <a href="/" class={current === 'en' ? 'font-bold underline' : ''} lang="en">EN</a>
+  <span aria-hidden="true">|</span>
+  <a href="/pl/" class={current === 'pl' ? 'font-bold underline' : ''} lang="pl">PL</a>
+</nav>

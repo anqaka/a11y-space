@@ -1,0 +1,11 @@
+---
+interface Props {
+  href: string;
+}
+const { href } = Astro.props;
+---
+<li>
+  <a href={href} class="p-4 text-primary hover:underline focus-visible:underline">
+    {href === '/pl/' ? 'Strona główna' : href === '/pl/live-region' ? 'Region na żywo' : href === '/pl/resources' ? 'Zasoby' : href}
+  </a>
+</li>

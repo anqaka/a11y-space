@@ -1,0 +1,78 @@
+---
+import Layout from '../../../layouts/Layout.pl.astro';
+import { t } from '../../../i18n/utils';
+import a11yTips from '../../../content/tips.pl.json';
+import TabList from '../../../components/TabList.astro';
+import TabPanel from '../../../components/TabPanel.astro';
+
+export async function getStaticPaths() {
+  const response = await fetch('https://hp-api.onrender.com/api/characters');
+  const data = await response.json()
+  data.length = 12;
+  return data.map((post, index) => {
+    post.tips = a11yTips[index];
+    return {
+      params: { slug: post.name.replace(' ', '-').toLowerCase() },
+      props: post,
+    }
+  });
+}
+
+const post = Astro.props;
+
+const tabList = [
+  'Informacje osobiste',
+  'Informacje o magii',
+  'Inne informacje'
+]
+---
+<Layout title={post.name} description={post.tips?.long || ''}>
+  <div class="container mx-auto grid grid-flow-row gap-8 grid-cols-1 sm:grid-cols-2 flex-grow pt-4 md:pt-8">
+    <div>
+      <h2 class=" custom-after font-bold text-4xl pb-4">{post.name}</h2>
+      <div class="py-6">
+        <p>Gatunek: {post.species}</p>
+        {post.alternate_names.length ? <p>Zwany też: {post.alternate_names.join(', ')}</p>: <p>Bez alternatywnych imion</p>}
+        <p>Płeć: {post.gender}</p>
+        <p>Dom: {post.house}</p>
+        <p>Data urodzenia: {post.dateOfBirth}</p>
+        <p>Czarodziej: {post.wizard}</p>
+        <p>Pochodzenie: {post.ancestry}</p>
+        <p>Patronus: {post.patronus}</p>
+        <p>Różdżka: {Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</p>
+        <p>Kolor oczu: {post.eyeColour}</p>
+        <p>Kolor włosów: {post.hairColour}</p>
+        <p>Aktor: {post.actor}</p>
+        <p>Żywy: {post.alive ?  <span>😀</span> : <span>☠️</span>}</p>
+        <p>Wskazówki: {post.tips?.long}</p>
+      </div>
+
+      <TabList title="Główne zakładki" wrapperId="tabby" tabList={tabList}>
+        <TabPanel id="tabpanel-tabby-0" tabId="tab-tabby-0" ariaHidden="false">
+          <p>Płeć: {post.gender}</p>
+          <p>Gatunek: {post.species}</p>
+          <p>Pochodzenie: {post.ancestry}</p>
+          <p>Data urodzenia: {post.dateOfBirth}</p>
+          <p>Kolor oczu: {post.eyeColour}</p>
+          <p>Kolor włosów: {post.hairColour}</p>
+          {post.alternate_names.length ? <p>Zwany też: {post.alternate_names.join(', ')}</p>: <p>Bez alternatywnych imion</p>}
+        </TabPanel>
+        <TabPanel id="tabpanel-tabby-1" tabId="tab-tabby-1" ariaHidden="true">
+          <p>Czarodziej: {post.wizard}</p>
+          <p>Dom: {post.house}</p>
+          <p>Patronus: {post.patronus}</p>
+          <p>Różdżka: {Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</p>
+        </TabPanel>
+        <TabPanel id="tabpanel-tabby-2" tabId="tab-tabby-2" ariaHidden="true">
+          <p>Żywy: {post.alive ?  <span>😀</span> : <span>☠️</span>}</p>
+          <p>Aktor w filmach: {post.actor}</p>
+          <p>Wskazówki dostępności: {post.tips?.long}</p>
+        </TabPanel>
+      </TabList>
+    </div>
+    <div class="flex justify-end items-start">
+      <div class="p-8 bg-gradient">
+        <img src={post.image} class="w-[300px]"></div>
+      </div>
+  </div>
+</Layout>

@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.pl.astro';
+import BlogCard from '../../components/BlogCard.pl.astro';
+import ModalDialog from '../../components/ModalDialog.pl.astro';
+import ModalDialogTrigger from '../../components/ModalDialogTrigger.astro';
+import a11yTips from '../../content/tips.pl.json';
+import { t } from '../../i18n/utils';
+
+const response = await fetch('https://hp-api.onrender.com/api/characters')
+const data = await response.json()
+data.length = 12;
+const hpdata = data.map((item, index) => {
+  if (item.image.length) {
+    item.tips = a11yTips[index];
+    return item
+  }
+});
+---
+<Layout title={t('nav.home')} description="Poprawiamy dostępność!" lang="pl">
+  <div class="maincontent">
+    <div class="relative mb-12">
+        <picture>
+          <source srcset="banner-image-360.jpeg 360w, banner-image-768.jpeg 768w, banner-image.jpeg 1024w, banner-image-wide.jpeg 1980w" sizes="100vw">
+          <img src="banner-image.jpeg" alt="baner z pingwinem" class="w-full h-full object-cover">
+        </picture>
+      <div class="md:absolute md:w-1/2 md:bg-white/75 md:ml-6 container mx-auto p-4 md:p-6 text-center md:text-left md:bottom-[100px]">
+        <h1 class="font-bold text-4xl">{t('liveRegion.title')}</h1>
+      </div>
+      <p class="text-center text-xl p-4">niewiele, niestety</p>
+    </div>
+    <div lang="pl" class="text-center pb-6">
+      <p>Dzień dobry! Witamy na warsztatach, poprawiamy dostępność.</p>
+    </div>
+    <div class="flex justify-center">
+      <ModalDialogTrigger id="main-dialog-trigger">
+        {t('modal.openDialog')}
+      </ModalDialogTrigger>
+    </div>
+    <div class="container mx-auto flex-grow">
+      <div class="py-4">
+        <h2 class="font-bold text-3xl text-center" id="main-heading">Czego Harry Potter i jego przyjaciele uczą o dostępności?</h2>
+        <ul class="grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-labelledby="main-heading">
+          {
+            hpdata.map((character) => (
+              <BlogCard name={character.name} image={character.image} description={character.tips?.short} />
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ModalDialog id="main-dialog" title={t('modal.title')} triggerId="main-dialog-trigger">
+    <p class="mb-4">Czy wiesz, że wielu użytkowników czytników ekranu nie wie o ciasteczkach na Twojej stronie? To, co widoczne na ekranie, nie zawsze jest dostępne dla technologii asystujących.</p>
+    <h3 class="custom-after mb-3 after:left-[40%] text-center">Jakie cechy ma dostępne okno dialogowe?</h3>
+    <div class="list-disc pl-8 py-4">
+      {t('modal.features').map((feature) => <div class="list-item">{feature}</div>)}
+    </div>
+    <button type="button" class="btn dialog__close-button">{t('modal.close')}</button>
+  </ModalDialog>
+</Layout>

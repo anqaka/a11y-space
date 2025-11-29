@@ -1,0 +1,19 @@
+---
+import HeaderLink from './HeaderLink.pl.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+---
+<header class="header py-4 px-2 shadow">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/pl/" class="p-4 text-2xl text-primary font-mono font-bold text-center hover:no-underline hover:bg-coral/20 transition-colors">
+      A11y Space
+    </a>
+    <nav class="justify-center flex menu-content transition-all absolute top-[60px] bg-white shadow flex-col p-4 right-0 z-50 md:relative md:shadow-none md:top-0 md:flex-row md:p-0" aria-label="Główna nawigacja">
+      <ul class="flex flex-row">
+        <HeaderLink href="/pl/" />
+        <HeaderLink href="/pl/live-region" />
+        <HeaderLink href="/pl/resources" />
+      </ul>
+      <LanguageSwitcher current="pl" />
+    </nav>
+  </div>
+</header>
