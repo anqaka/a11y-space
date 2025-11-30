@@ -4,6 +4,9 @@
     "liveRegion": "Region na żywo",
     "resources": "Zasoby"
   },
+  "home": {
+    "title": "Co Pingwin wie o dostępności cyfrowej?"
+  },
   "modal": {
     "openDialog": "Otwórz okno dialogowe",
     "close": "Zamknij",
@@ -32,6 +35,7 @@
   "liveRegion": {
     "title": "Napisz wiadomość dla pingwina w kosmosie",
     "yourMessage": "Twoja wiadomość",
+    "yourMessageForPenguin": "Twoja wiadomość do pingwina",
     "submit": "Wyślij",
     "clear": "Wyczyść",
     "placeholder": "Twoja wiadomość pojawi się tutaj",

@@ -4,8 +4,8 @@ interface Props {
 }
 const { current } = Astro.props;
 ---
-<nav aria-label="Wybór języka" class="flex gap-2 items-center">
-  <a href="/" class={current === 'en' ? 'font-bold underline' : ''} lang="en">EN</a>
+<div role="group" aria-label={current === 'en' ? 'Language switcher' : 'Wybór jezyka'} class="flex gap-2 items-center px-4">
+  <a href="/" class={current === 'en' ? 'text-primary font-bold underline' : 'text-primary'} aria-current={current === 'en' ? 'true' : 'false'}>EN <span class="sr-only">{ current === 'en' ? 'English' : 'Angielski' }</span></a>
   <span aria-hidden="true">|</span>
-  <a href="/pl/" class={current === 'pl' ? 'font-bold underline' : ''} lang="pl">PL</a>
-</nav>
+  <a href="/pl/" class={current === 'pl' ? 'text-primary font-bold underline' : 'text-primary'} aria-current={current === 'pl' ? 'true' : 'false'}>PL <span class="sr-only">{ current === 'en' ? 'Polish' : 'Polski' }</span></a>
+</div>

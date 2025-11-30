@@ -12,7 +12,7 @@ import { t } from '../../i18n/utils';
         <form id="msg-form" aria-labelledby="form-heading" class="flex flex-col items-center">
           <div class="input-field py-6 flex flex-col">
             <label for="msg-field">{t('liveRegion.yourMessage')}</label>
-            <input type="text" id="msg-field" name="message" placeholder="{t('liveRegion.yourMessage')}" class="w-[300px] form-input rounded" aria-describedby="msg-error" />
+            <input type="text" id="msg-field" name="message" placeholder={t('liveRegion.yourMessageForPenguin')} class="w-[300px] form-input rounded" aria-describedby="msg-error" />
             <p class="error-info hidden text-red-600" id="msg-error">{t('liveRegion.error')}</p>
           </div>
           <button type="submit" class="btn w-[300px]">{t('liveRegion.submit')}</button>

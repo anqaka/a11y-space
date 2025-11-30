@@ -16,20 +16,20 @@ const hpdata = data.map((item, index) => {
   }
 });
 ---
-<Layout title={t('nav.home')} description="Poprawiamy dostępność!" lang="pl">
+<Layout title={t('nav.home')} description="Poprawiamy dostępność!">
   <div class="maincontent">
     <div class="relative mb-12">
         <picture>
           <source srcset="banner-image-360.jpeg 360w, banner-image-768.jpeg 768w, banner-image.jpeg 1024w, banner-image-wide.jpeg 1980w" sizes="100vw">
-          <img src="banner-image.jpeg" alt="baner z pingwinem" class="w-full h-full object-cover">
+          <img src="${banner-image.jpeg}" alt="pingwin w kosmosie na tle anstrakcyjnego kolorowego tła" class="w-full h-full object-cover">
         </picture>
       <div class="md:absolute md:w-1/2 md:bg-white/75 md:ml-6 container mx-auto p-4 md:p-6 text-center md:text-left md:bottom-[100px]">
-        <h1 class="font-bold text-4xl">{t('liveRegion.title')}</h1>
+        <h1 class="font-bold text-4xl">{t('home.title')}</h1>
       </div>
       <p class="text-center text-xl p-4">niewiele, niestety</p>
     </div>
-    <div lang="pl" class="text-center pb-6">
-      <p>Dzień dobry! Witamy na warsztatach, poprawiamy dostępność.</p>
+    <div lang="en" class="text-center pb-6">
+      <p>Welcome! this text is in English.</p>
     </div>
     <div class="flex justify-center">
       <ModalDialogTrigger id="main-dialog-trigger">

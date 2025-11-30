@@ -5,7 +5,7 @@ interface Props {
 const { href } = Astro.props;
 ---
 <li>
-  <a href={href} class="p-4 text-primary hover:underline focus-visible:underline">
+  <a href={href} class="px-2 py-4 z-50 block md:px-4 md:py-3 text-primary">
     {href === '/pl/' ? 'Strona główna' : href === '/pl/live-region' ? 'Region na żywo' : href === '/pl/resources' ? 'Zasoby' : href}
   </a>
 </li>

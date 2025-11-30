@@ -7,8 +7,13 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
     <a href="/pl/" class="p-4 text-2xl text-primary font-mono font-bold text-center hover:no-underline hover:bg-coral/20 transition-colors">
       A11y Space
     </a>
-    <nav class="justify-center flex menu-content transition-all absolute top-[60px] bg-white shadow flex-col p-4 right-0 z-50 md:relative md:shadow-none md:top-0 md:flex-row md:p-0" aria-label="Główna nawigacja">
-      <ul class="flex flex-row">
+    <button class="relative inline-block w-11 h-11 p-1 trigger md:hidden" aria-expanded="false">
+      <span class="mx-auto relative trigger-item">
+        <span class="sr-only block w-0 h-0">Menu trigger</span>
+      </span>
+    </button>
+    <nav class="justify-center hidden md:visible md:flex menu-content transition-all absolute top-[60px] bg-white shadow flex-col p-4 right-0 z-50 md:relative md:shadow-none md:top-0 md:flex-row md:p-0" aria-label="Główna nawigacja">
+      <ul class="md:flex md:flex-row">
         <HeaderLink href="/pl/" />
         <HeaderLink href="/pl/live-region" />
         <HeaderLink href="/pl/resources" />
@@ -17,3 +22,52 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
     </nav>
   </div>
 </header>
+<script>
+const menuTrigger = document.querySelector('.trigger');
+const menuContent = document.querySelector('.menu-content');
+  menuTrigger?.addEventListener('click', () => {
+    if (menuTrigger.classList.contains('opened')) {
+      menuContent?.classList.remove('open')
+      menuTrigger?.classList.remove('opened')
+      menuTrigger.setAttribute('aria-expanded', 'false')
+    } else {
+      menuContent?.classList.add('open')
+      menuTrigger?.classList.add('opened')
+      menuTrigger.setAttribute('aria-expanded', 'true')
+    }
+});
+</script>
+<style>
+.open {
+  @apply !flex;
+}
+/* menu trigger animation */
+.trigger-item:before,
+.trigger-item:after {
+  content:'';
+  position:absolute;
+}
+.trigger-item,
+.trigger-item:before,
+.trigger-item:after {
+  @apply h-1.5 w-full bg-primary block transition-all duration-300;
+}
+
+.trigger-item:before {
+  @apply -mt-3;
+}
+.trigger-item:after {
+  @apply mt-3;
+}
+
+.trigger.opened .trigger-item {
+  background-color: rgba(0,0,0,0.0);
+}
+
+.trigger.opened .trigger-item:before {
+  @apply rotate-45 mt-0;
+}
+.trigger.opened .trigger-item:after {
+  @apply -rotate-45 mt-0;
+}
+</style>
