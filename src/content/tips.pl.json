@@ -1,0 +1,50 @@
+[
+  {
+    "short": "Landmarki HTML poprawiają strukturę strony. Znasz 'main', 'footer', 'header', 'aside', 'article'?",
+    "long": "Landmarki HTML poprawiają strukturę strony. Znasz 'main', 'footer', 'header', 'aside', 'article'?"
+  },
+  {
+    "short": "Semantyczny HTML dostarcza ważnych informacji o dokumencie, jego strukturze i roli. Nie zapominaj o tym!",
+    "long": "Semantyczny HTML dostarcza ważnych informacji o dokumencie, jego strukturze i roli. Nie zapominaj o tym!"
+  },
+  {
+    "short": "Nagłówki i ich kolejność to jak menu treści – informują użytkowników o ważnych sekcjach i informacjach.",
+    "long": "Nagłówki i ich kolejność to jak menu treści – informują użytkowników o ważnych sekcjach i informacjach."
+  },
+  {
+    "short": "Nie zapomnij o alternatywnym tekście dla obrazów i grafiki.",
+    "long": "Nie zapomnij o alternatywnym tekście dla obrazów i grafiki."
+  },
+  {
+    "short": "Jeśli Twój przycisk nie ma widocznego tekstu, użyj aria-label jako alternatywy.",
+    "long": "Jeśli Twój przycisk nie ma widocznego tekstu, użyj aria-label jako alternatywy."
+  },
+  {
+    "short": "Wyraźnie oznacz wszystkie stany interaktywnych elementów.",
+    "long": "Wyraźnie oznacz wszystkie stany interaktywnych elementów."
+  },
+  {
+    "short": "Nie polegaj wyłącznie na kolorach przy przekazywaniu informacji.",
+    "long": "Nie polegaj wyłącznie na kolorach przy przekazywaniu informacji."
+  },
+  {
+    "short": "Odłóż mysz i sprawdź, czy wszystkie funkcje są dostępne z klawiatury.",
+    "long": "Odłóż mysz i sprawdź, czy wszystkie funkcje są dostępne z klawiatury."
+  },
+  {
+    "short": "Istnieje wiele technologii asystujących do korzystania z treści webowych – testuj różnorodnie!",
+    "long": "Istnieje wiele technologii asystujących do korzystania z treści webowych – testuj różnorodnie!"
+  },
+  {
+    "short": "Wiesz, że ok. 4,5% ludzi na świecie (~350 mln) to osoby z daltonizmem? Sprawdź kontrast kolorów.",
+    "long": "Wiesz, że ok. 4,5% ludzi na świecie (~350 mln) to osoby z daltonizmem? Sprawdź kontrast kolorów."
+  },
+  {
+    "short": "Automatyczne narzędzia do testowania dostępności wykrywają do 60% problemów. Spróbuj!",
+    "long": "Automatyczne narzędzia do testowania dostępności wykrywają do 60% problemów. Używaj ich :)."
+  },
+  {
+    "short": "Lepiej nie używać ARIA niż użyć jej źle.",
+    "long": "Lepiej nie używać ARIA niż użyć jej źle."
+  }
+]
