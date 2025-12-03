@@ -7,7 +7,7 @@ interface Props {
 const { title, wrapperId, tabList } = Astro.props
 ---
 <div class="tabs" id={wrapperId} data-wrapper={wrapperId}>
-  <h3>{title}</h3>
+  <h2>{title}</h2>
   <div role="tablist" class="flex">
     {
       tabList.map((tab, i) => (

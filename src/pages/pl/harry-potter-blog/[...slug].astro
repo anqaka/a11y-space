@@ -29,43 +29,43 @@ const tabList = [
 <Layout title={post.name} description={post.tips?.long || ''}>
   <div class="container mx-auto grid grid-flow-row gap-8 grid-cols-1 sm:grid-cols-2 flex-grow pt-4 md:pt-8">
     <div>
-      <h2 class=" custom-after font-bold text-4xl pb-4">{post.name}</h2>
+      <h1 class=" custom-after font-bold text-4xl pb-4" lang="en">{post.name}</h1>
       <div class="py-6">
-        <p>Gatunek: {post.species}</p>
-        {post.alternate_names.length ? <p>Zwany też: {post.alternate_names.join(', ')}</p>: <p>Bez alternatywnych imion</p>}
-        <p>Płeć: {post.gender}</p>
-        <p>Dom: {post.house}</p>
-        <p>Data urodzenia: {post.dateOfBirth}</p>
-        <p>Czarodziej: {post.wizard}</p>
-        <p>Pochodzenie: {post.ancestry}</p>
-        <p>Patronus: {post.patronus}</p>
-        <p>Różdżka: {Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</p>
-        <p>Kolor oczu: {post.eyeColour}</p>
-        <p>Kolor włosów: {post.hairColour}</p>
-        <p>Aktor: {post.actor}</p>
-        <p>Żywy: {post.alive ?  <span>😀</span> : <span>☠️</span>}</p>
+        <p>Gatunek: <span lang="en">{post.species}</span></p>
+        {post.alternate_names.length ? <p>Zwany też: <span lang="en">{post.alternate_names.join(', ')}</span></p>: <p>Bez alternatywnych imion</p>}
+        <p>Płeć: <span lang="en">{post.gender}</span></p>
+        <p>Dom: <span lang="en">{post.house}</span></p>
+        <p>Data urodzenia: <span lang="en">{post.dateOfBirth}</span></p>
+        <p>Czarodziej:</p> <p lang="en">{post.wizard}</p>
+        <p>Pochodzenie: <span lang="en">{post.ancestry}</span></p>
+        <p>Patronus: <span lang="en">{post.patronus}</span></p>
+        <p>Różdżka: <span lang="en">{Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</span></p>
+        <p>Kolor oczu: <span lang="en">{post.eyeColour}</span></p>
+        <p>Kolor włosów: <span lang="en">{post.hairColour}</span></p>
+        <p>Aktor: <span lang="en">{post.actor}</span></p>
+        <p>Żywy: {post.alive ?  <span>😀</span><span class="sr-only">Tak, żyje</span> : <span>☠️</span><span class="sr-only">Nie, nie żyje</span>}</p>
         <p>Wskazówki: {post.tips?.long}</p>
       </div>
 
       <TabList title="Główne zakładki" wrapperId="tabby" tabList={tabList}>
         <TabPanel id="tabpanel-tabby-0" tabId="tab-tabby-0" ariaHidden="false">
-          <p>Płeć: {post.gender}</p>
-          <p>Gatunek: {post.species}</p>
-          <p>Pochodzenie: {post.ancestry}</p>
-          <p>Data urodzenia: {post.dateOfBirth}</p>
-          <p>Kolor oczu: {post.eyeColour}</p>
-          <p>Kolor włosów: {post.hairColour}</p>
-          {post.alternate_names.length ? <p>Zwany też: {post.alternate_names.join(', ')}</p>: <p>Bez alternatywnych imion</p>}
+          <p>Płeć: <span lang="en">{post.gender}</span></p>
+          <p>Gatunek: <span lang="en">{post.species}</span></p>
+          <p>Pochodzenie: <span lang="en">{post.ancestry}</span></p>
+          <p>Data urodzenia: <span lang="en">{post.dateOfBirth}</span></p>
+          <p>Kolor oczu: <span lang="en"></span>{post.eyeColour}</p>
+          <p>Kolor włosów: <span lang="en">{post.hairColour}</span></p>
+          {post.alternate_names.length ? <p>Zwany też: <span lang="en"></span>{post.alternate_names.join(', ')}</p>: <p>Bez alternatywnych imion</p>}
         </TabPanel>
         <TabPanel id="tabpanel-tabby-1" tabId="tab-tabby-1" ariaHidden="true">
-          <p>Czarodziej: {post.wizard}</p>
-          <p>Dom: {post.house}</p>
-          <p>Patronus: {post.patronus}</p>
-          <p>Różdżka: {Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</p>
+          <p>Czarodziej: <span lang="en">{post.wizard}</span></p>
+          <p>Dom: <span lang="en">{post.house}</span></p>
+          <p>Patronus: <span lang="en">{post.patronus}</span></p>
+          <p>Różdżka: <span lang="en">{Object.entries(post.wand).map(([key, value]) => `${key}: ${value}`).join(', ')}</span></p>
         </TabPanel>
         <TabPanel id="tabpanel-tabby-2" tabId="tab-tabby-2" ariaHidden="true">
-          <p>Żywy: {post.alive ?  <span>😀</span> : <span>☠️</span>}</p>
-          <p>Aktor w filmach: {post.actor}</p>
+          <p>Żywy: {post.alive ?  <span>😀</span><span class="sr-only">Tak, żyje</span> : <span>☠️</span><span class="sr-only">Nie, nie żyje</span>}</p>
+          <p>Aktor w filmach: <span lang="en">{post.actor}</span></p>
           <p>Wskazówki dostępności: {post.tips?.long}</p>
         </TabPanel>
       </TabList>
