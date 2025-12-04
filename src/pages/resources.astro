@@ -6,11 +6,11 @@ import LinksList from '../components/LinksList.astro';
 const resources = [
   {
     label: 'WCAG',
-    url: 'https://www.w3.org/TR/WCAG21/'
+    url: 'https://www.w3.org/TR/WCAG22/'
   },
   {
     label: 'WCAG quick reference',
-    url: 'https://www.w3.org/WAI/WCAG21/quickref/'
+    url: 'https://www.w3.org/WAI/WCAG22/quickref/'
   },
   {
     label: 'W3C - Design and develop - tips and tutorials',
@@ -25,8 +25,12 @@ const resources = [
     url: 'https://inclusive-components.design/'
   },
   {
-    label: 'Axe-con 2023',
-    url: 'https://www.deque.com/axe-con/schedule/'
+    label: 'Inclusive Design 24 - YouTube Channel',
+    url: 'https://www.youtube.com/@InclusiveDesign24'
+  },
+  {
+    label: 'Axe-con 2026',
+    url: 'https://www.deque.com/axe-con/'
   }
 ]
 
@@ -36,11 +40,31 @@ const tools = [
     url: 'https://www.deque.com/axe/browser-extensions/'
   },
   {
+    label: 'Accessibility Insights from Microsoft',
+    url: 'https://accessibilityinsights.io/downloads/'
+  },
+  {
+    label: 'ARC Toolkit from TPGi',
+    url: 'https://www.tpgi.com/arc-platform/arc-toolkit/'
+  },
+  {
+    label: 'IBM Equal Access checker',
+    url: 'https://www.ibm.com/able/toolkit/tools/#develop'
+  },
+  {
+    label: 'HeadingsMap',
+    url: 'https://chromewebstore.google.com/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi'
+  },
+  {
+    label: 'Taba11y',
+    url: 'https://chromewebstore.google.com/detail/taba11y-tab-order-accessi/aocppmckdocdjkphmofnklcjhdidgmga'
+  },
+  {
     label: 'Wave browser extension',
     url: 'https://wave.webaim.org/extension/'
   },
   {
-    label: 'Lighthouse',
+    label: 'Google Lighthouse',
     url: 'https://developer.chrome.com/docs/lighthouse/accessibility/'
   },
   {
@@ -87,18 +111,18 @@ const blogs = [
 const newsletters = [
   {
     label: 'A11y weekly',
-    url: 'https://a11yweekly.com/'
+    url: 'https://a11yweekly.com/',
   },
   {
     label: 'Dostępnik',
-    url: 'https://dostepnik.substack.com/'
+    url: 'https://dostepnik.substack.com/',
   }
 ]
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="maincontent container mx-auto py-8 flex-grow">
-    <h3 class="mb-8 text-6xl font-bold text-primary text-center">Resources</h3>
+    <h1 class="mb-8 text-6xl font-bold text-primary text-center">Resources</h1>
     <LinksList heading="Guidelines & tutorials" list={resources} />
     <LinksList heading="Tools" list={tools} />
     <LinksList heading="Newsletter" list={newsletters} />
